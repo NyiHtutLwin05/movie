@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Film } from "lucide-react";
 import Search from "./components/Search";
+import Spinner from "./components/Spinner";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -97,9 +98,11 @@ function App() {
             </div>
           </header>
           <section className="all-movies">
-            <h2>All Movies</h2>
+            <h2 className="mt-[20px]">All Movies</h2>
             {isLoading ? (
-              <p className="text-white">Loading ...</p>
+              <p className="text-white">
+                <Spinner />
+              </p>
             ) : errorMessage ? (
               <p className="text-red-500">{errorMessage}</p>
             ) : (
