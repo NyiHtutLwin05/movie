@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Film } from "lucide-react";
 import Search from "./components/Search";
 import Spinner from "./components/Spinner";
+import MovieCard from "./components/MovieCard";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -108,11 +109,7 @@ function App() {
             ) : (
               <ul>
                 {movieList.map((movie) => {
-                  return (
-                    <p key={movie.id} className="text-white">
-                      {movie.title}
-                    </p>
-                  );
+                  return <MovieCard key={movie.id} movie={movie} />;
                 })}
               </ul>
             )}
